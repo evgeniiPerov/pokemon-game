@@ -2,6 +2,7 @@ import React from 'react'
 import l from './layout.module.css'
 
 export default function Layout({ title, desc, colorBg = false, urlBg }) {
+    //Зар помоги пожалуйста с css на картинку, она уплывает ум еня вниз, не решил ещё
     const styleRoot = colorBg ? { background: 'red' } : {
         background: `url(${urlBg})`,
         maxWidth: '100%',
