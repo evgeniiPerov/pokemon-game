@@ -11,8 +11,8 @@ export default function Layout({ title, desc, colorBg = false, urlBg }) {
     }
 
     return (
-        <section className={l.root} style={styleRoot}>
-            <div className={l.wrapper} >
+        <section className={l.root} >
+            <div className={l.wrapper} style={styleRoot} >
                 <article >
                     {title && <div className={l.title}>
                         {title}
