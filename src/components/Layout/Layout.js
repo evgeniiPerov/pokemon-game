@@ -1,13 +1,16 @@
 import React from 'react'
 import l from './layout.module.css'
 
-export default function Layout({ title, desc, colorBg = false, urlBg }) {
-    //Зар помоги пожалуйста с css на картинку, она уплывает ум еня вниз, не решил ещё
-    const styleRoot = colorBg ? { background: 'red' } : {
-        background: `url(${urlBg})`,
-        maxWidth: '100%',
-        backgroundSize: 'cover',
 
+export default function Layout({ title, colorBg = false, urlBg, children }) {
+
+
+    const styleRoot = {};
+    if (urlBg) {
+        styleRoot.backgroundImage = `url(${urlBg})`
+    }
+    if (colorBg) {
+        styleRoot.backgroundColor = colorBg
     }
 
     return (
@@ -18,8 +21,8 @@ export default function Layout({ title, desc, colorBg = false, urlBg }) {
                         {title}
                         <span className={l.separator}></span>
                     </div>}
-                    {desc && < div className={`${l.desc} ${l.full}`}>
-                        {desc}
+                    {children && < div className={`${l.desc} ${l.full}`}>
+                        {children}
                     </div>}
                 </article>
             </div>

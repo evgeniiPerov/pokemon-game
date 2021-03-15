@@ -11,7 +11,7 @@
 .root::before {
   content: "";
   position: fixed;
-  background: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a83c9ee4-6981-4ba7-8955-4ceac8f9778f/Stars.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210310%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210310T121555Z&X-Amz-Expires=86400&X-Amz-Signature=bbdb6203ce86d9cc157981a2cc8e39fd9ac9271a66816d2b161dab52f0898811&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Stars.svg%22");
+  background: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/a83c9ee4-6981-4ba7-8955-4ceac8f9778f/Stars.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210312%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210312T090136Z&X-Amz-Expires=86400&X-Amz-Signature=505b2e5c85cc11447308a0324c4620b981dcfffa730ac09ef384b66a5557060e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Stars.svg%22");
   background-attachment: fixed;
   width: 100%;
   min-height: 100vh;
@@ -34,7 +34,7 @@
   position: absolute;
   bottom: -300px;
   left: 0;
-  background: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/25bb5944-e49b-4e34-b4fd-374d5a7598ea/Trees.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210310%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210310T121617Z&X-Amz-Expires=86400&X-Amz-Signature=7f20f4bf7ed37a2edaceab200439709361e1543ccdf38cd9fcade7183d819883&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Trees.svg%22")
+  background: url("https://s3.us-west-2.amazonaws.com/secure.notion-static.com/25bb5944-e49b-4e34-b4fd-374d5a7598ea/Trees.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210312%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210312T090232Z&X-Amz-Expires=86400&X-Amz-Signature=dbdf1ef7f7a6448e13804023ba4487355809c5553c038c73d68d74f370bd0675&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Trees.svg%22")
     bottom left repeat-x;
   background-size: cover;
   width: 100%;
