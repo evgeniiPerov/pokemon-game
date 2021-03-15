@@ -175,7 +175,7 @@ Each player has five cards in a hand and the aim is to capture the opponent's ca
         colorBg >
         <div className="flex">
           {
-            POKEMONS.map(item => <PokemonCard key={item.id} {...item} />)
+            POKEMONS.map(item => <PokemonCard key={item.id} />)
           }
         </div>
 
