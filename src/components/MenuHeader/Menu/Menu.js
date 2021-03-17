@@ -3,39 +3,27 @@ import cn from 'classnames'
 
 import s from './style.module.css'
 
-export default function Menu({ onClickDiv, isActive }) {
-
-    const handleClick = () => {
-        console.log('<Menu/>')
-        onClickDiv && onClickDiv('active')
+export default function Menu({ isActive }) {
+    const menuList = ['welcome', 'game', 'about', 'contact'];
+    const menuItems = menuList.map((name) => {
+        return (
+            <li>
+                <a href={"#" + name}>
+                    {name.toUpperCase()}
+                </a>
+            </li>
+        )
     }
-    // const active = isActive ? s.active : s.deactive
+    );
+
+    const activeStyle = isActive ? [s.active] : [s.deactive]
     //className="menuContainer active/deactive"
     return (
-        <div onClick={handleClick} className={cn(s.menuContainer, { [s.active]: isActive, [s.deactive]: !isActive })}>
+        <div className={cn(s.menuContainer, activeStyle)}>
             <div className={s.overlay} />
             <div className={s.menuItems}>
                 <ul>
-                    <li>
-                        <a href="#welcome">
-                            HOME
-        </a>
-                    </li>
-                    <li>
-                        <a href="#game">
-                            GAME
-        </a>
-                    </li>
-                    <li>
-                        <a href="#about">
-                            ABOUT
-        </a>
-                    </li>
-                    <li>
-                        <a href="#contact">
-                            CONTACT
-        </a>
-                    </li>
+                    {menuItems}
                 </ul>
             </div>
         </div>

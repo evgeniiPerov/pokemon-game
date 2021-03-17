@@ -8,16 +8,16 @@ import s from './style.module.css'
 export default function Navbar({ onClickAnchor, isActive }) {
 
     const handleClick = () => {
-        console.log('<Navbar />')
-        onClickAnchor && onClickAnchor('deactive')
+        onClickAnchor && onClickAnchor()
     }
+
     return (
         <nav className={s.root}>
             <div className={s.navWrapper}>
                 <p className={s.brand}>
                     LOGO
           </p>
-                <a href='#ancor' onClick={handleClick} className={cn(s.menuButton, { [s.active]: !isActive })}>
+                <a href='#ancor' onClick={handleClick} className={cn(s.menuButton, { [s.active]: isActive })}>
                     <span />
                 </a>
             </div>
