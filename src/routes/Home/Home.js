@@ -4,7 +4,6 @@
 
 import Header from "../../components/Header/Header";
 import Layout from "../../components/Layout/Layout";
-import PokemonCard from "../../components/PokemonCard/PokemonCard";
 
 //img import
 import img from "../../assets/bg3.jpg";
