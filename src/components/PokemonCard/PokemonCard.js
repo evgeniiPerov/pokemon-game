@@ -9,7 +9,7 @@ export default function PokemonCard({ name, img, id, type, values }) {
 
     const [isActive, setActive] = useState(false)
     const handleClick = () => {
-        setActive(!isActive)
+        setActive('s.active')
     }
     // 18  <div className={`${s.pokemonCard} ${isActive ? s.active : ''}`}>
     return (

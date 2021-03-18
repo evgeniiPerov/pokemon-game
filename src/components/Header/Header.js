@@ -1,20 +1,17 @@
 import React from 'react'
-
-import MenuHeader from '../MenuHeader/MenuHeader'
-
+import { useHistory } from 'react-router-dom'
 
 
 import h from './header.module.css'
 
-export default function Header({ title, desc, onClickButton }) {
+export default function Header({ title, desc }) {
+    const history = useHistory()
 
     const handleClick = () => {
-        console.log('<Header/>')
-        onClickButton && onClickButton('game')
+        history.push('/game')
     }
     return (
         <header className={h.root}>
-            <MenuHeader />
             <div className={h.forest}></div>
             <div className={h.container}>
                 <h1>{title}</h1>
