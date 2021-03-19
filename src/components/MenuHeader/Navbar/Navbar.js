@@ -5,21 +5,21 @@ import cn from 'classnames'
 
 import s from './style.module.css'
 
-export default function Navbar({ onClickAnchor, isActive }) {
+export default function Navbar({ onClickBurger, isOpen, bgActive = false }) {
 
     const handleClick = () => {
-        onClickAnchor && onClickAnchor()
+        onClickBurger && onClickBurger()
     }
-
+    //className={s.root}
     return (
-        <nav className={s.root}>
+        <nav className={cn(s.root, { [s.bgActive]: bgActive })} >
             <div className={s.navWrapper}>
                 <p className={s.brand}>
                     LOGO
           </p>
-                <a href='#ancor' onClick={handleClick} className={cn(s.menuButton, { [s.active]: isActive })}>
+                <div onClick={handleClick} className={cn(s.menuButton, { [s.active]: isOpen })}>
                     <span />
-                </a>
+                </div>
             </div>
         </nav >
     )
