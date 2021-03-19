@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import cn from 'classnames'
 
 import cardBackSide from './assets/card-back-side.jpg'
 
 import s from './style.module.css'
 
-export default function PokemonCard({ name, img, id, type, values }) {
+export default function PokemonCard({ name, img, id, type, values, handleClickChange, isActive }) {
 
-    const [isActive, setActive] = useState(false)
+
     const handleClick = () => {
-        setActive('s.active')
+        handleClickChange(id)
     }
     // 18  <div className={`${s.pokemonCard} ${isActive ? s.active : ''}`}>
     return (

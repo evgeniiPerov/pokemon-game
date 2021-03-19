@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import PokemonCard from '../../components/PokemonCard/PokemonCard'
 
@@ -140,7 +140,20 @@ const POKEMONS =
         }
     ]
 
-export default function GamePage({ onChangePage }) {
+export default function GamePage() {
+
+    const [pokemons, setPokemons] = useState(POKEMONS)
+
+    const handleClickChange = (id) => {
+        setPokemons(prevstate => {
+            return Array.from(prevstate, (item) => {
+                if (item.id === id) {
+                    item.active = true;
+                }
+                return item
+            })
+        })
+    }
 
     const history = useHistory()
     const handleClickHome = () => {
@@ -157,6 +170,8 @@ export default function GamePage({ onChangePage }) {
                         id={item.id}
                         type={item.type}
                         values={item.values}
+                        handleClickChange={handleClickChange}
+                        isActive={item.active}
                     // {...item}
                     />)
                 }
