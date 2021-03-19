@@ -163,7 +163,7 @@ export default function GamePage() {
         <div>
             <div className={s.flex}>
                 {
-                    POKEMONS.map(item => <PokemonCard
+                    pokemons.map(item => <PokemonCard
                         key={item.id}
                         name={item.name}
                         img={item.img}
