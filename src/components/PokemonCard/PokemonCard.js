@@ -5,11 +5,11 @@ import cardBackSide from './assets/card-back-side.jpg'
 
 import s from './style.module.css'
 
-export default function PokemonCard({ name, img, id, type, values, handleClickChange, isActive }) {
+export default function PokemonCard({ name, img, id, type, values, handleClickChange, isActive, keyId }) {
 
 
     const handleClick = () => {
-        handleClickChange(id)
+        handleClickChange(keyId, id)
     }
     // 18  <div className={`${s.pokemonCard} ${isActive ? s.active : ''}`}>
     return (
