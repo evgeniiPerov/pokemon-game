@@ -50,6 +50,7 @@ export default function GamePage() {
     //Resert all cards 
     const handleResetCardsClick = () => {
         let check = null;
+        // eslint-disable-next-line array-callback-return
         Object.entries(pokemons).map(([key, { active }]) => {
             if (active === true) {
                 if (check === null)
