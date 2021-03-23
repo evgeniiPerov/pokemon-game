@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import cn from 'classnames'
 
 
-import { useRouteMatch, Route, Switch, Redirect } from 'react-router-dom'
+import { useLocation, Route, Switch, Redirect } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
 import MenuHeader from './components/MenuHeader/MenuHeader'
 
@@ -13,35 +13,29 @@ import ContactPage from './routes/Contacts/Contacts'
 import ErrorPage from './routes/Error/ErrorPage'
 
 
-
+import { FirebaseContext } from './context/FirebaseContext'
 import s from './style.module.css'
-import { TestContext } from './context/TestContext'
-
+import Firebase from './service/firebase'
 
 
 
 export default function App() {
-  const [theme, setTheme] = useState('light')
-  //fix bgActive
-  const match = useRouteMatch('/')
 
-  const handlerChangeTheme = (val) => {
-    setTheme(val)
-  }
+  const location = useLocation()
+  const isPadding = location.pathname === '/' || location.pathname === '/game/board'
+
+
   return (
-    <TestContext.Provider value={{
-      theme,
-      onChangeTheme: handlerChangeTheme
-    }} >
+    <FirebaseContext.Provider value={new Firebase()} >
       <Switch>
         <Route>
           <Route path='/404' render={() => (
             <h1>404 not found</h1>
           )} />
           <>
-            <MenuHeader bgActive={!match.isExact} />
+            <MenuHeader bgActive={!isPadding} />
             <div className={cn(s.wrap, {
-              [s.isHomePage]: match.isExact
+              [s.isHomePage]: isPadding
             })}>
               <Switch>
                 <Route path='/' exact component={HomePage} />
@@ -60,9 +54,7 @@ export default function App() {
             <Footer />
           </>
         </Route>
-
-
       </Switch>
-    </TestContext.Provider>
+    </FirebaseContext.Provider>
   )
 }
