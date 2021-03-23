@@ -1,17 +1,9 @@
 import React from 'react'
 
-
-
-
-export default function AboutPage() {
-
-
-
+export default function Finish() {
     return (
         <div>
-
-            <p>About Page </p>
-
+            this is finish page
         </div>
     )
 }
