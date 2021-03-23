@@ -27,6 +27,7 @@ export default function StartPage() {
         })
 
         return () => firebase.offPokemonSoket()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
