@@ -1,18 +1,23 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { TestContext } from '../../context/TestContext'
+
 
 
 export default function AboutPage() {
 
-    const history = useHistory()
-    const handleClickHome = () => {
-        history.push('/home')
+
+    const themeContext = useContext(TestContext)
+    console.log('themeContext', themeContext)
+    const handlerClick = () => {
+        themeContext.onChangeTheme(themeContext.theme === 'light' ? 'dark' : 'light')
     }
     return (
         <div>
 
             <p>About Page </p>
-            <button onClick={handleClickHome}>Return To Home</button>
+            <button onClick={handlerClick}>
+                Change Theme
+        </button>
         </div>
     )
 }
