@@ -8,7 +8,7 @@ export default function PokemonCard({ possession, name, img, id, type, values, h
 
 
     const handleClick = () => {
-        handleClickChange && handleClickChange(keyId, id)
+        handleClickChange && handleClickChange()
     }
     // 18  <div className={`${s.pokemonCard} ${isActive ? s.active : ''}`}>
     return (
