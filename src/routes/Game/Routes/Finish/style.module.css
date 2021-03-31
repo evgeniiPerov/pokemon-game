@@ -1,0 +1,25 @@
+.card {
+  width: 100%;
+  height: 380px;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+.card.noSelected {
+  cursor: initial;
+}
+
+.card.isSelected {
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+.buttonWrap {
+  text-align: center;
+  padding: 2rem;
+}
+.flex {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 20px;
+}

@@ -4,11 +4,11 @@ import cn from 'classnames'
 
 import s from './style.module.css'
 
-export default function PokemonCard({ name, img, id, type, values, handleClickChange, isActive, keyId, minimize, isSelected, className }) {
+export default function PokemonCard({ possession, name, img, id, type, values, handleClickChange, isActive, keyId, minimize, isSelected, className }) {
 
 
     const handleClick = () => {
-        handleClickChange(keyId, id)
+        handleClickChange && handleClickChange()
     }
     // 18  <div className={`${s.pokemonCard} ${isActive ? s.active : ''}`}>
     return (
@@ -19,7 +19,7 @@ export default function PokemonCard({ name, img, id, type, values, handleClickCh
         })} onClick={handleClick}>
             <div className={s.cardFront}>
                 <div className={cn(s.wrap, s.front)}>
-                    <div className={cn(s.pokemon, s[type])}>
+                    <div className={cn(s.pokemon, s[type], s[possession])}>
                         <div className={s.values}>
                             <div className={cn(s.count, s.top)}>{values.top}</div>
                             <div className={cn(s.count, s.right)}>{values.right}</div>

@@ -28,57 +28,54 @@ export default function StartPage() {
 
         return () => firebase.offPokemonSoket()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [firebase])
 
 
-    const handleChangeSelected = (key) => {
+    const handleChangeActiveSelected = (key) => {
         const pokemon = { ...pokemons[key] }
-        pokemonsContext.onSelectedPokemons(key, pokemon)
-        setPokemons(prevState => ({
-            ...prevState,
-            [key]: {
-                ...prevState[key],
-                selected: !prevState[key].selected,
-            }
-        }))
-    }
-    const handleStartGameClick = () => {
-        history.push('/game/board')
+        pokemonsContext.onSelectedPokemons(key, pokemon);
+        if (pokemons[key]) {
+            const copyState = { ...pokemons };
+            copyState[key]["selected"] = !copyState[key]["selected"]
+
+            setPokemons(copyState);
+        }
+    };
+    const handleStartGame = () => {
+        history.push('/game/board');
     }
 
     return (
         <div className={s.root}>
-            <div style={{ textAlign: "center" }}>
+            <div style={{ textAlign: "center", margin: "0 0 20px 0" }}>
                 <button
-                    onClick={handleStartGameClick}
-                    disabled={Object.keys(pokemonsContext.pokemons).length < 5}
-                >
-                    Start Game
-                  </button>
-
+                    onClick={handleStartGame}
+                    disabled={Object.keys(pokemonsContext.pokemons).length < 5 ? 'disabled' : ''}>
+                    Start game
+            </button>
             </div>
             <div className={s.flex}>
                 {
-                    Object.entries(pokemons).map(([key, { name, img, id, type, values, selected }]) => <PokemonCard
-                        key={key}
-                        className={s.card}
-                        keyId={key}
-                        name={name}
-                        img={img}
-                        id={id}
-                        type={type}
-                        values={values}
-                        isActive={true}
-                        isSelected={selected}
-                        minimize
-                        handleClickChange={() => {
-                            if (Object.keys(pokemonsContext.pokemons).length < 5 || selected) {
-                                handleChangeSelected(key)
-                            }
-                        }}
-                    />)
+                    Object.entries(pokemons).map(([key, { keyId, name, img, id, type, values, selected }]) =>
+                        <PokemonCard
+                            key={key}
+                            keyId={key}
+                            name={name}
+                            img={img}
+                            id={id}
+                            type={type}
+                            values={values}
+                            isActive
+                            isSelected={selected}
+                            handleClickChange={() => {
+                                if (Object.keys(pokemonsContext.pokemons).length < 5 || selected)
+                                    handleChangeActiveSelected(key, selected);
+                            }}
+                            minimize={false}
+                            className={s.card}
+                        />)
                 }
             </div>
-        </div >
+        </div>
     )
 }
